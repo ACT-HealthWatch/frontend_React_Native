@@ -10,9 +10,10 @@ const Login = ({ onLogin, onNavigateToSignUp }) => {
   const [password, setPassword] = useState('');
   const [loginFailed, setLoginFailed] = useState(false);
 
-  const saveData = async (data) => {
+  const saveData = async (data, id) => {
     try {
       await AsyncStorage.setItem('accessToken', data);
+      await AsyncStorage.setItem('userId', id);
     } catch (error) {
       console.error('Error saving data:', error);
     }
@@ -21,7 +22,8 @@ const Login = ({ onLogin, onNavigateToSignUp }) => {
   const getData = async () => {
     try {
       const accessToken = await AsyncStorage.getItem('accessToken');
-      return accessToken;
+      const popName = await AsyncStorage.getItem('userId')
+      return [accessToken, popName];
     } catch (error) {
       console.error('Error getting data:', error);
       return 0;
@@ -37,6 +39,7 @@ const Login = ({ onLogin, onNavigateToSignUp }) => {
       pw: pw
     });
     const url = api_uri + `/api/v1/user/login?${queryParams}`;
+    const url2 = api_uri + `/api/v1/user/list`;
 
     try {
       const response = await fetch(url, {
@@ -46,9 +49,18 @@ const Login = ({ onLogin, onNavigateToSignUp }) => {
       const responseJson = await response.json();
 
       if (response.status === 200) {
-        saveData(responseJson.access_token);
-        const tokenResult = getData();
-        
+        const responseurl2 = await fetch(url2, {
+          method: 'GET'
+        });
+        const responseJsonurl2 = await responseurl2.json();
+        for (let i in responseJsonurl2) {
+          if (responseJsonurl2[i].user_id === id) {
+            saveData(responseJson.access_token, responseJsonurl2[i].user_name);
+          }
+        }
+        const tokenResult = await getData();
+        const nameResult = await getData();
+        console.log(tokenResult[0], nameResult[1])
         if (tokenResult !== 0) {
           onLogin(tokenResult);
           setLoginFailed(false);
