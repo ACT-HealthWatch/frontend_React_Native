@@ -59,9 +59,7 @@ const Login = ({ onLogin, onNavigateToSignUp }) => {
           }
         }
         const tokenResult = await getData();
-        const nameResult = await getData();
-        console.log(tokenResult[0], nameResult[1])
-        if (tokenResult !== 0) {
+        if (tokenResult !== undefined) {
           onLogin(tokenResult);
           setLoginFailed(false);
         } else {

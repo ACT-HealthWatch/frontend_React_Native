@@ -1,11 +1,13 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Dimensions, } from 'react-native';
 import { BarChart, XAxis } from 'react-native-svg-charts';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const labels = ['월', '화', '수', '목', '금', '토', '일'];
 
 
-const Home = async ({ onNavigateToMore, navigateToPhotoAnalysis, navigateToVideoAnalysis }) => {
+const Home = ({ onNavigateToMore, navigateToPhotoAnalysis, navigateToVideoAnalysis }) => {
   const getData = async () => {
     try {
       const accessToken = await AsyncStorage.getItem('accessToken');
@@ -23,8 +25,17 @@ const Home = async ({ onNavigateToMore, navigateToPhotoAnalysis, navigateToVideo
   const minerals = { "양파": "양파에는 많은 무기질이 있어 혈당 조절, 인슐린 생성 촉진, 당뇨 예방에 좋습니다.", "버섯": "버섯설명", "토마토": "토마토설명" };
 
   const NUTRIENTS = [10, 60, 10, 40, 15];//서버에서 받을 영양소별 섭취량
+  getData().then((result) => {
+    accessToken = result[0];
+    nameResult = result[1];
+  });
 
-  const nameResult = await getData();
+  useEffect(() => {
+    getData().then(([token, name]) => {
+      setAccessToken(token);
+      setNameResult(name);
+    });
+  }, []);
   console.log(nameResult);
   if (NUTRIENTS[0] < 50) {
     proteinR = Math.floor(Math.random() * Object.keys(protein).length)
@@ -66,9 +77,10 @@ const Home = async ({ onNavigateToMore, navigateToPhotoAnalysis, navigateToVideo
     titleM = "무기질은 충분합니다."
     subM = ""
   }
-  const USERNAME = nameResult[1];
+  const USERNAME = nameResult
 
   const data = [10, 20, 30, 40, 50, 60, 70];
+
 
   return (
     <View Style={styles.container}>
