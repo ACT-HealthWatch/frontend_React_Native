@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.js": "/static/js/main.f13ed405.js",
+    "static/js/828.245c956b.js": "/static/js/828.245c956b.js",
+    "static/media/Home_E.png": "/static/media/Home_E.2d43e79e11f16c3538da.png",
+    "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
+    "static/media/FontAwesome5_Solid.ttf": "/static/media/FontAwesome5_Solid.07c3313b24f7b1ca85ee.ttf",
+    "static/media/FontAwesome5_Brands.ttf": "/static/media/FontAwesome5_Brands.9e138496e8f1719c6ebf.ttf",
+    "static/media/Plank.jpg": "/static/media/Plank.45bba660c77d463ad663.jpg",
+    "static/media/Home_F.jpg": "/static/media/Home_F.5f9a37a15cdc2476fe36.jpg",
+    "static/media/icon.png": "/static/media/icon.e6a9c938be140af79490.png",
+    "static/media/Home_E1.jpg": "/static/media/Home_E1.1b268928979f68be0f9a.jpg",
+    "static/media/FontAwesome5_Regular.ttf": "/static/media/FontAwesome5_Regular.1017bce89c72f95bcf8e.ttf",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon-16.png": "/favicon-16.png",
+    "manifest.json": "/manifest.json",
+    "serve.json": "/serve.json",
+    "main.f13ed405.js.map": "/static/js/main.f13ed405.js.map",
+    "828.245c956b.js.map": "/static/js/828.245c956b.js.map"
+  },
+  "entrypoints": [
+    "static/js/828.245c956b.js",
+    "static/js/main.f13ed405.js"
+  ]
+}

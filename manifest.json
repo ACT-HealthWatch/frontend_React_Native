@@ -1,0 +1,21 @@
+{
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "en",
+  "name": "healthwatch_oss",
+  "short_name": "healthwatch_oss",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "id": "com.act.healthwatch"
+    },
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.act.healthwatch",
+      "id": "com.act.healthwatch"
+    }
+  ],
+  "prefer_related_applications": true
+}
