@@ -10,7 +10,11 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "android": {
+        "buildType": "apk" // .apk 파일로 빌드하기 위해 사용합니다.
+      }
+    }
   },
   "submit": {
     "production": {}

@@ -26,24 +26,24 @@ export default function Video_Analysis() {
   let exName = tellExName()
   console.log("h")
   console.log(exName)
-  if (exName == "Plank") {
+  if (exName == "plank") {
     CORRECTION_INDEX1 = CORRECTION_INDEX1
     PLANK_MANUAL = PLANK_MANUAL
-  } else if (exName == "Situp") {
+  } else if (exName == "situp") {
     CORRECTION_INDEX1 = CORRECTION_INDEX2
     PLANK_MANUAL = SITUP_MANUAL
-  } else if (exName == "Squat") {
+  } else if (exName == "squat") {
     CORRECTION_INDEX1 = CORRECTION_INDEX3
     PLANK_MANUAL = SQUAT_MANUAL
   } else {
     CORRECTION_INDEX1 = UNKNOWN_INDEX
     PLANK_MANUAL = UNKNOWN_MANUAL
   }
-  if (exName == "Plank") {
+  if (exName == "plank") {
     exName = "플랭크"
-  } else if (exName == "Situp") {
+  } else if (exName == "situp") {
     exName = "윗몸일으키기"
-  } else if (exName == "Squat") {
+  } else if (exName == "squat") {
     exName = "스쿼트"
   } else {
     exName = "영상이 업로드되지 않았거나 분석되지 않는 형태의 운동입니다."
